@@ -1,0 +1,84 @@
+@use "../../foundation/variables" as *;
+
+/* ----- report section ----- */
+.p-report {
+  padding: 96px 0 80px;
+  overflow-x: hidden;
+  transform: translateX(50px);
+
+  @include breakpoint(tablet) {
+    padding: 170px 0 120px;
+  }
+
+  &__head {
+    padding-left: min(6%, 25px);
+
+    @include breakpoint(tablet) {
+      padding-left: 40px;
+    }
+
+    fieldset {
+      border: none;
+
+      label + label {
+        margin-left: 18px;
+      }
+    }
+
+    input[type=radio] {
+      margin-right: 4px;
+    }
+  }
+
+  &__select {
+    margin-top: 18px;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 308px;
+      height: 57.8px;
+      background: url(../images/bird.svg) center / contain no-repeat;
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 71%;
+      transform: translateY(-50%);
+
+      @include breakpoint(tablet) {
+        display: block;
+      }
+    }
+
+    input, select {
+      padding: 6px 24px;
+      width: 172px;
+      border: 1px solid $main-color;
+      border-radius: 4px;
+      background-color: $bg-color;
+      display: none;
+      color: $main-color;
+      text-align: center;
+
+      @include breakpoint(tablet) {
+        padding-block: 8px;
+        width: 220px;
+      }
+
+      &.is-open {
+        display: block;
+      }
+    }
+
+    button {
+      padding: 4px 16px;
+
+      @include breakpoint(tablet) {
+        padding: 6px 18px;
+      }
+    }
+  }
+}

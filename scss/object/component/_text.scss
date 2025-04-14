@@ -1,0 +1,13 @@
+@use "../../foundation/variables" as *;
+
+/* ----- text component ----- */
+.c-hours {
+  letter-spacing: 0.05em;
+
+  &::after {
+    content: "h";
+    margin-left: 2px;
+    font-size: 1.4rem;
+    vertical-align: baseline;
+  }
+}

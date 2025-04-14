@@ -1,0 +1,10 @@
+@use "../../foundation/variables" as *;
+
+/* ----- footer ----- */
+.p-footer {
+  small {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+}

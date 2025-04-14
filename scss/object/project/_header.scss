@@ -1,0 +1,50 @@
+@use "../../foundation/variables" as *;
+
+/* ----- header ----- */
+.p-header {
+  display: grid;
+  place-content: center;
+
+  h1 {
+    margin-top: -56px;
+    font-size: 0;
+    text-align: center;
+  }
+
+  svg {
+    width: clamp(208px, 50vw, 400px);
+    height: auto;
+
+    @include breakpoint(tablet) {
+      width: clamp(400px, 50vw, 600px);
+    }
+  }
+
+  &__titleTxt {
+    fill: $main-color;
+
+    path {
+      stroke-width: 0;
+    }
+  }
+
+  &__titleMask {
+    path {
+      fill: none;
+      stroke: $bg-color;
+      stroke-dasharray: 3080px;
+      animation: title 6s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes title {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 3080px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

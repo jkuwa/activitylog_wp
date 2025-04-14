@@ -1,0 +1,143 @@
+@use "../../foundation/variables" as *;
+
+/* ----- calendar ----- */
+.p-calendar {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 425px;
+
+  @include breakpoint(tablet) {
+    max-width: 500px;
+  }
+
+  // FullCalendar
+  .fc-scrollgrid, th, td {
+    border: none;
+  }
+  .fc-day-sun {
+    color: $red-color;
+  }
+  a {
+    pointer-events: none;
+  }
+
+  // ツールバー
+  .fc-button-primary{
+    padding: 2px;
+    border: none;
+    border-radius: 50%;
+    background-color: unset;
+    display: grid;
+    place-content: center;
+    color: $main-color;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+  .fc-toolbar.fc-header-toolbar {
+    margin: 0 8px 32px;
+
+    @include breakpoint(tablet) {
+      margin: 0 auto 60px;
+      width: 80%;
+    }
+
+    h2 {
+      @include montserrat();
+      font-size: 2rem;
+
+      @include breakpoint(tablet) {
+        font-size: 2.4rem;
+      }
+    }
+
+    > * > :not(:first-child) {
+      margin-left: 4px;
+
+      @include breakpoint(tablet) {
+        margin-left: 12px;
+      }
+    }
+  }
+  .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+
+    .fc-icon::before {
+      display: block;
+    }
+  }
+  .fc-button-group > .fc-button:not(:last-child) {
+    border-radius: 50%;
+  }
+  .fc--button {
+    display: none;
+  }
+
+  // カレンダー
+  .fc-view {
+    color: $black-color;
+
+    // 曜日
+    thead {
+      height: 44px;
+
+      @include breakpoint(tablet) {
+        height: 64px;
+      }
+    }
+    th {
+      font-weight: 400;
+    }
+
+    // 日にち
+    .fc-daygrid-day-top {
+      justify-content: center;
+    }
+    .fc-daygrid-day-number {
+      width: 2.5rem;
+      padding: 2px;
+      display: inline-block;
+      font-size: 1.4rem;
+      text-align: center;
+
+      @include breakpoint(tablet) {
+        width: 2.8rem;
+        font-size: 1.6rem;
+      }
+    }
+    .fc-daygrid-day.fc-day-today {
+      background-color: transparent;
+
+      .fc-daygrid-day-number {
+        border-radius: 50%;
+        background-color: #FFEDF0;
+      }
+    }
+    .fc-daygrid-day-events {
+      margin-bottom: 12px;
+      min-height: 8px !important;
+
+      @include breakpoint(tablet) {
+        min-height: 24px !important;
+      }
+
+      .fc-event-title {
+        display: none;
+      }
+      .fc-daygrid-event-dot {
+        margin-inline: auto;
+        border: 2px solid $main-color;
+
+        @include breakpoint(tablet) {
+          border-width: 3px;
+        }
+      }
+    }
+  }
+
+
+
+}

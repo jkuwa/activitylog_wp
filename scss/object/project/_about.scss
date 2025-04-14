@@ -1,0 +1,54 @@
+@use "../../foundation/variables" as *;
+
+/* ----- about ----- */
+.p-about {
+  padding-bottom: 180px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint(tablet) {
+    padding-bottom: 380px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    @include breakpoint(tablet) {
+      font-size: 2.4rem;
+    }
+  }
+
+  figure {
+    margin-top: 32px;
+
+    @include breakpoint(tablet) {
+      margin-top: 80px;
+    }
+
+    img {
+      width: 80px;
+      height: auto;
+
+      @include breakpoint(tablet) {
+        width: 120px;
+      }
+    }
+  }
+
+  p {
+    margin-top: 24px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.4rem;
+
+    @include breakpoint(tablet) {
+      margin-top: 40px;
+      max-width: 480px;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+  }
+}

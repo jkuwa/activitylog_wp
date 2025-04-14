@@ -1,0 +1,44 @@
+@use "variables" as *;
+
+/* ----- base ----- */
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  width: 100%;
+  background-color: $bg-color;
+  color: $main-color;
+  font-family: "Zen Maru Gothic", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+// *:focus-visible,
+// a:focus-visible,
+// button:focus-visible,
+// input:focus-visible,
+// textarea:focus-visible {
+//   outline: ;
+//   outline-offset: ;
+// }

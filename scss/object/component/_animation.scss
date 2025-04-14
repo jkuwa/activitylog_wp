@@ -1,0 +1,44 @@
+@use "../../foundation/variables" as *;
+
+/* ----- animation component ----- */
+.c-loader {
+  display: inline-block;
+  opacity: 0;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(1);
+
+  &.-o {
+    animation-delay: .2s;
+  }
+  &.-a {
+    animation-delay: .4s;
+  }
+  &.-d {
+    animation-delay: .6s;
+  }
+  &.-i {
+    animation-delay: .8s;
+  }
+  &.-n {
+    animation-delay: 1s;
+  }
+  &.-g {
+    animation-delay: 1.2s;
+  }
+  &.-dot {
+    animation-delay: 1.4s;
+  }
+}
+
+@keyframes loader {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,23 @@
+@use "../../foundation/variables" as *;
+
+/* ----- contents ----- */
+.p-contents {
+  width: 100%;
+  border-bottom: 1px solid $gray-color;
+  position: relative;
+  overflow: hidden;
+
+  &__tabs {
+    padding-top: 6px;
+    border-bottom: 1px solid $main-color;
+    position: relative;
+
+    button + button {
+      margin-left: 12px;
+
+      @include breakpoint(tablet) {
+        margin-left: 24px;
+      }
+    }
+  }
+}

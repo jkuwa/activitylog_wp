@@ -1,0 +1,31 @@
+@use "../../foundation/variables" as *;
+
+/* ----- content component ----- */
+.c-content {
+  width: 100%;
+  visibility: hidden;
+  border-top: 1px solid $gray-color;
+  background-image: linear-gradient($border-color 1px, transparent 1px), linear-gradient(90deg, $border-color 1px, transparent 1px);
+  background-position: 5px 5px;
+  background-size: 15px 15px;
+  background-repeat: repeat;
+  position: absolute;
+  top: 62px;
+  left: 0;
+  opacity: 0;
+  transition: opacity .4s .2s ease-in-out, transform .4s .2s ease-in-out;
+
+  @include breakpoint(tablet) {
+    background-position: 10px 10px;
+    background-size: 20px 20px;
+    top: 86px;
+  }
+
+  &.is-open {
+    visibility: visible;
+    position: relative;
+    top: 0;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
