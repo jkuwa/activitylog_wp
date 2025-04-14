@@ -1,44 +1,44 @@
 'use strict';
 
-$(function() {
+jQuery(function() {
   // --------------------
   // タブ
   // --------------------
-  $(".js-tabBtn").on('click', function() {
-    if ( $(this).hasClass('is-current') ) {
+  jQuery(".js-tabBtn").on('click', function() {
+    if ( jQuery(this).hasClass('is-current') ) {
       return;
     }
     // 選択中のタブを外す
-    $(".js-tabBtn").removeClass('is-current').attr({
+    jQuery(".js-tabBtn").removeClass('is-current').attr({
       'aria-selected': 'false',
       'tabindex': '-1',
     });
-    $(".js-tabContent").removeClass('is-open');
+    jQuery(".js-tabContent").removeClass('is-open');
 
     // タブの切り替え
-    $(this).addClass('is-current').attr({
+    jQuery(this).addClass('is-current').attr({
       'aria-selected': 'true',
       'tabindex': '0'
     });
 
     // コンテンツを表示
-    const data = $(this).data('tab');
-    const targetContent = $(`.js-tabContent[data-tab="${data}"]`);
+    const data = jQuery(this).data('tab');
+    const targetContent = jQuery(`.js-tabContent[data-tab="${data}"]`);
     targetContent.addClass('is-open');
   });
 
   // キーボード操作
-  $(".js-tabBtn").keydown(function(e) {
+  jQuery(".js-tabBtn").keydown(function(e) {
     if ( e.which === 37 ) {
       e.preventDefault();
-      const prevTab = $(this).prev('.js-tabBtn');
+      const prevTab = jQuery(this).prev('.js-tabBtn');
 
       if ( prevTab.length ) {
         prevTab.focus();
       }
     } else if ( e.which === 39 ) {
       e.preventDefault();
-      const nextTab = $(this).next('.js-tabBtn');
+      const nextTab = jQuery(this).next('.js-tabBtn');
 
       if ( nextTab.length ) {
         nextTab.focus();

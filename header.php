@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html <?php language_attributes(); ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&family=Montserrat+Alternates:wght@500&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/ress.css">
-  <link rel="stylesheet" href="css/style.css">
+  <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
   <header class="l-header p-header">
