@@ -73,18 +73,37 @@ jQuery(function() {
       firstDay: 1,
       contentHeight: 'auto',
       // イベント
-      events: [
-        {
-          title: '2025.03.18',
-          start: '2025-03-18',
-          end: '2025-03-18'
-        },
-        {
-          title: '2025.03.20',
-          start: '2025-03-20',
-          end: '2025-03-20'
+      events: async function(info, successCallback, failureCallback) {
+        // カレンダーの始まりの翌週を基準にする
+        const baseDate = new Date(info.start);
+        baseDate.setDate(baseDate.getDate() + 7);
+
+        const year = baseDate.getFullYear();
+        const month = String(baseDate.getMonth() + 1 ).padStart(2, '0');
+        const yyyymm = `${year}-${month}`;
+
+        try {
+          const response = await fetch(`wp-json/custom/v1/post-dates?month=${yyyymm}`);
+
+          if ( !response.ok ) {
+            throw new Error('イベントの取得に失敗しました');
+          }
+
+          const posts = await response.json();
+
+          const events = posts.map( post => ({
+            title: post.title,
+            start: post.date,
+            end: post.date,
+          }));
+
+          successCallback(events);
+
+        } catch (error) {
+          console.error(error);
+          failureCallback(error);
         }
-      ],
+      },
       eventDisplay: 'list-item',
     });
     calendar.render();

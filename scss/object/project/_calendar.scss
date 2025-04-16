@@ -121,11 +121,16 @@
       min-height: 8px !important;
 
       @include breakpoint(tablet) {
+        padding: 4px;
         min-height: 24px !important;
       }
 
       .fc-event-title {
         display: none;
+      }
+      .fc-event {
+        border: none;
+        background-color: unset;
       }
       .fc-daygrid-event-dot {
         margin-inline: auto;
