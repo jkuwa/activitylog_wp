@@ -22,17 +22,18 @@
 
   // --------- Full Calendar ---------
   add_action('rest_api_init', function() {
+    // エンドポイント作成
     register_rest_route('custom/v1', '/post-dates', [
       'methods' => 'GET',
       'callback' => 'get_post_dates',
-      'permission_callback' => '__return_true',
+      'permission_callback' => '__return_true',   // 誰でも取得できる
     ]);
   });
 
   function get_post_dates($request) {
     $month = sanitize_text_field($request['month']);
-    $start = $month . '-01';
-    $end = date('Y-m-t', strtotime($start));
+    $start = $month . '-01';   // 月の1日
+    $end = date('Y-m-t', strtotime($start));   // 月の最終日
 
     $args = [
       'post_type' => 'log',
@@ -42,33 +43,45 @@
         [
           'after' => $start,
           'before' => $end,
-          'inclusive' => true,
+          'inclusive' => true,   // afterとbeforeに指定した日も含める
         ]
       ]
     ];
 
     $query = new WP_Query($args);
     $posts = [];
-    // $events = [];
 
-    // error_log('Found posts: ' . count($query -> posts));
+    // error_log('取得した投稿数：' . $query -> found_posts);
 
     foreach ( $query -> posts as $post ) {
-      // $date = get_the_date('Y-m-d', $post);
-      // $title = get_the_title($post);
+      $id = $post -> ID;
+      $fields = [];
+      // error_log( print_r($id, true));
 
-      // $events[] = [
-      //   'title' => $title,
-      //   'start' => $date,
-      //   'end' => $date,
-      // ];
+      for ($i=1; $i<=6; $i++) {
+        $cat = get_post_meta( $id, 'category_0' . $i, true);
+        $content = get_post_meta( $id, 'content_0' . $i, true);
+        $hours = get_post_meta( $id, 'hours_0' . $i, true);
+
+        if ( !empty($cat) ) {
+          $fields[] = [
+            'category' => $cat,
+            'content' => $content,
+            'hours' => $hours,
+          ];
+        }
+      }
+
       $posts[] = [
-        'id' => $post -> ID,
+        'id' => $id,
         'title' => get_the_title($post),
         'date' => get_the_date('Y-m-d', $post),
+        'content' => apply_filters('the_content', $post -> post_content),
+        'fields' => $fields,
       ];
     }
 
+    // error_log( print_r($posts, true));
     return rest_ensure_response($posts);
   }
 
