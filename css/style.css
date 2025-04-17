@@ -159,7 +159,7 @@ a:hover {
   width: 56px;
   height: auto;
   aspect-ratio: 56/45;
-  background: url(../../../images/arrow.svg) center/contain no-repeat;
+  background: url(../images/arrow.svg) center/contain no-repeat;
   display: block;
   position: absolute;
   top: -1px;

@@ -4,7 +4,7 @@
     <!-- ABOUT SECTION -->
     <section class="p-about">
       <h2>くわ　じゅんな</h2>
-      <figure><img src="images/avatar.png" alt="くわじゅんなの顔イラスト"></figure>
+      <figure><img src="<?php echo esc_url( get_theme_file_uri('images/avatar.png') ); ?>" alt="くわじゅんなの顔イラスト"></figure>
       <p>千葉県でフリーランスのコーダーとして活動しています。<br>静的サイトのコーディングやWordPressオリジナルテーマを用いたWebサイト制作を中心に手掛けています。<br>日々の活動や学習の記録をつけています。</p>
     </section>
 
