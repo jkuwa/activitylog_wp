@@ -110,9 +110,9 @@
       // error_log( print_r($id, true));
 
       for ($i=1; $i<=6; $i++) {
-        $cat = get_post_meta( $id, 'category_0' . $i, true);
-        $content = get_post_meta( $id, 'content_0' . $i, true);
-        $hours = get_post_meta( $id, 'hours_0' . $i, true);
+        $cat = get_post_meta( $id, "category_0{$i}", true);
+        $content = get_post_meta( $id, "content_0{$i}", true);
+        $hours = get_post_meta( $id, "hours_0{$i}", true);
 
         if ( !empty($cat) ) {
           $fields[] = [
