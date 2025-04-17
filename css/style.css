@@ -403,7 +403,7 @@ a:hover {
 @media (min-width: 768px) {
   .p-about p {
     margin-top: 40px;
-    max-width: 424px;
+    max-width: 480px;
     font-size: 1.6rem;
     text-align: center;
   }
