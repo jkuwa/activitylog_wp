@@ -2,10 +2,32 @@
 
   <main class="l-main">
     <!-- ABOUT SECTION -->
+
+    <?php
+      $about = get_posts( array(
+        'name' => 'about',
+        'post_type' => 'page',
+        'post_status' => array('private', 'publish'),
+        'numberposts' => 1,
+      ));
+
+      if ($about):
+        $about_page = $about[0];
+        $about_id = $about_page -> ID;
+    ?>
+
     <section class="p-about">
-      <h2>くわ　じゅんな</h2>
-      <figure><img src="<?php echo esc_url( get_theme_file_uri('images/avatar.png') ); ?>" alt="くわじゅんなの顔イラスト"></figure>
-      <p>千葉県でフリーランスのコーダーとして活動しています。<br>静的サイトのコーディングやWordPressオリジナルテーマを用いたWebサイト制作を中心に手掛けています。<br>日々の活動や学習の記録をつけています。</p>
+      <h2><?php echo esc_html( $about_page -> post_title ); ?></h2>
+
+      <?php if (has_post_thumbnail($about_id)): ?>
+        
+      <figure><?php echo get_the_post_thumbnail($about_id, 'full'); ?></figure>
+
+      <?php
+        endif;
+        echo apply_filters('the_content', $about_page -> post_content);
+      endif;
+      ?>
     </section>
 
     <div class="p-contents js-container">

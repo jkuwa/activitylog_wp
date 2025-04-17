@@ -46,9 +46,17 @@
 
     @include breakpoint(tablet) {
       margin-top: 40px;
-      max-width: 480px;
+      max-width: 424px;
       font-size: 1.6rem;
       text-align: center;
+    }
+
+    + p {
+      margin-top: 8px;
+    } 
+
+    a {
+      text-decoration: underline;
     }
   }
 }

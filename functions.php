@@ -1,4 +1,6 @@
 <?php
+  // テーマサポート
+  add_theme_support('post-thumbnails');
 
   // --------- ファイル読み込み ---------
   function activityLog_script() {
