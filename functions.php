@@ -22,6 +22,55 @@
   add_action('wp_enqueue_scripts', 'activityLog_script');
 
 
+  // --------- 投稿データをスプシに送信 ---------
+  function send_log_data_to_sheet($post_id) {
+
+    $post = get_post($post_id);
+    if ($post -> post_type !== 'log') return;
+
+    $date = get_the_date('Y-m-d', $post_id);
+    $log_data = [];
+
+    for ($i =1; $i <= 6; $i++) {
+      $category = get_post_meta($post_id, "category_0{$i}", true);
+      $hours = get_post_meta($post_id, "hours_0{$i}", true);
+
+      if ( $category && $hours ) {
+        $log_data[] = [
+          'category' => $category,
+          'hours' => $hours
+        ];
+      }
+    }
+
+    if ( empty($log_data) ) return;
+
+    $data = [
+      'date' => $date,
+      'log' => $log_data
+    ];
+
+    $json = wp_json_encode($data);
+    $url = 'https://script.google.com/macros/s/AKfycbxQkqkLQKSGpWJoji66VKW0NcZ0RvEMIGcU98VjR7JN3QJXbgAyCcxOlIdG64XvVoKm/exec';
+
+    $response = wp_remote_post($url, [
+      'body' => $json,
+      'headers' => [
+        'Content-Type' => 'application/json',
+        'Content-Length' => strlen($json)
+      ],
+      'method' => 'POST'
+    ]);
+
+    if ( is_wp_error($response) ) {
+      error_log("Error sending data to Google Sheets:" . $response -> get_error_message());
+    } else {
+      error_log("Success! Sending data: {$json} | Response: " . wp_remote_retrieve_body($response));
+    }
+  }
+  add_action('acf/save_post', 'send_log_data_to_sheet');
+
+
   // --------- Full Calendar ---------
   add_action('rest_api_init', function() {
     // エンドポイント作成
