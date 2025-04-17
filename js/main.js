@@ -171,7 +171,7 @@ jQuery(function() {
     const monthValue = document.querySelector("#month").value;
     const yearValue = document.querySelector('select[name="year"]').value;
 
-    let url = 'https://script.google.com/macros/s/AKfycbyXMcDbSBdCo01GwgduTl1f1EF_DppS45kpm2ACimXZHgmYZwz5IyXzGsQ5wvjH5NCo/exec';
+    let url = 'https://script.google.com/macros/s/AKfycbzdzBBpXnRQWB_NtRxD5Ly6pJ65K7xcZJ8lr0MIqaboCdBaccePMmBvSeNaKDXikRGGMg/exec';
     let title = '';
 
     if ( modeSelect === 'month' ) {
