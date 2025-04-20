@@ -118,11 +118,11 @@
     }
     .fc-daygrid-day-events {
       margin-bottom: 12px;
-      min-height: 8px !important;
+      min-height: 8px;
 
       @include breakpoint(tablet) {
         padding: 4px;
-        min-height: 24px !important;
+        min-height: 24px;
       }
 
       .fc-event-title {

@@ -589,12 +589,12 @@ a:hover {
 }
 .p-calendar .fc-view .fc-daygrid-day-events {
   margin-bottom: 12px;
-  min-height: 8px !important;
+  min-height: 8px;
 }
 @media (min-width: 768px) {
   .p-calendar .fc-view .fc-daygrid-day-events {
     padding: 4px;
-    min-height: 24px !important;
+    min-height: 24px;
   }
 }
 .p-calendar .fc-view .fc-daygrid-day-events .fc-event-title {
