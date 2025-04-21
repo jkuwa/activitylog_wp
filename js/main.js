@@ -345,23 +345,6 @@ jQuery(function() {
   }
 
 
-  // ---------- canvasサイズ指定 ---------
-  function setCanvasHeight() {
-    const bp = 768;
-    if ( window.innerWidth < bp ) {
-      ctx.style.height = '340px';
-    } else {
-      ctx.style.height = '420px';
-    }
-  }
-
-
-  // 初回実行
-  setCanvasHeight();
-  // リサイズ時実行
-  window.addEventListener('resize', setCanvasHeight);
-
-
   // ページ読み込み時にグラフ表示
   document.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
