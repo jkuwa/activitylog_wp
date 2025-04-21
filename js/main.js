@@ -290,7 +290,6 @@ jQuery(function() {
           }
         },
         barPercentage: 0.5,
-        responsive: true,
         maintainAspectRatio: false,
         animation: {
           onProgress: () => {
