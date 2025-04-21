@@ -276,7 +276,6 @@ jQuery(function() {
           },
           y: {
             stacked: true,
-            beginAtZero: true,
             border: {
               dash: [2, 2]
             },
