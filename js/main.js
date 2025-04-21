@@ -47,9 +47,6 @@ jQuery(function() {
   });
 });
 
-  // グローバル変数
-  let myChart;
-
 {
   // --------------------
   // FullCalendar
@@ -146,6 +143,7 @@ jQuery(function() {
   // Chart
   // --------------------
   const ctx = document.querySelector(".js-chart");
+  let myChart;
 
   // ---------- form 切り替え ----------
   const mode = document.querySelectorAll("input[name='mode']");
