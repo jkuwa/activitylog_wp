@@ -51,7 +51,7 @@
     ];
 
     $json = wp_json_encode($data);
-    $url = 'https://script.google.com/macros/s/AKfycbzSvXB0Bl62G89pOBzRemnQoghv0tQlBftClDWSr53xxeo0q4v6lIw2t69_ah6wUmUpVA/exec';
+    $url = 'https://script.google.com/macros/s/AKfycbxOQ_9cM_y_SMrZ-yr0GIZp5xBVTTyhnMGObCCdx7TJCRy184F6xkN_ZZeLqMDiHGvGAQ/exec';
 
     $response = wp_remote_post($url, [
       'body' => $json,

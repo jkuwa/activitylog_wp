@@ -169,7 +169,7 @@ jQuery(function() {
     const monthValue = document.querySelector("#month").value;
     const yearValue = document.querySelector('select[name="year"]').value;
 
-    let url = 'https://script.google.com/macros/s/AKfycbzdzBBpXnRQWB_NtRxD5Ly6pJ65K7xcZJ8lr0MIqaboCdBaccePMmBvSeNaKDXikRGGMg/exec';
+    let url = 'https://script.google.com/macros/s/AKfycbxOQ_9cM_y_SMrZ-yr0GIZp5xBVTTyhnMGObCCdx7TJCRy184F6xkN_ZZeLqMDiHGvGAQ/exec';
     let title = '';
 
     if ( modeSelect === 'month' ) {
