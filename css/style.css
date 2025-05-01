@@ -237,33 +237,33 @@ a:hover {
   -webkit-animation-timing-function: steps(1);
           animation-timing-function: steps(1);
 }
-.c-loader.-o {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+.c-loader:nth-child(2) {
+  -webkit-animation-delay: calc(0.2s * ( 2 - 1 ));
+          animation-delay: calc(0.2s * ( 2 - 1 ));
 }
-.c-loader.-a {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
+.c-loader:nth-child(3) {
+  -webkit-animation-delay: calc(0.2s * ( 3 - 1 ));
+          animation-delay: calc(0.2s * ( 3 - 1 ));
 }
-.c-loader.-d {
-  -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
+.c-loader:nth-child(4) {
+  -webkit-animation-delay: calc(0.2s * ( 4 - 1 ));
+          animation-delay: calc(0.2s * ( 4 - 1 ));
 }
-.c-loader.-i {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
+.c-loader:nth-child(5) {
+  -webkit-animation-delay: calc(0.2s * ( 5 - 1 ));
+          animation-delay: calc(0.2s * ( 5 - 1 ));
 }
-.c-loader.-n {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+.c-loader:nth-child(6) {
+  -webkit-animation-delay: calc(0.2s * ( 6 - 1 ));
+          animation-delay: calc(0.2s * ( 6 - 1 ));
 }
-.c-loader.-g {
-  -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+.c-loader:nth-child(7) {
+  -webkit-animation-delay: calc(0.2s * ( 7 - 1 ));
+          animation-delay: calc(0.2s * ( 7 - 1 ));
 }
-.c-loader.-dot {
-  -webkit-animation-delay: 1.4s;
-          animation-delay: 1.4s;
+.c-loader:nth-child(8) {
+  -webkit-animation-delay: calc(0.2s * ( 8 - 1 ));
+          animation-delay: calc(0.2s * ( 8 - 1 ));
 }
 
 @-webkit-keyframes loader {

@@ -108,7 +108,7 @@
           <div class="p-loader__bg"></div>
             
           <p>
-            <span class="c-loader -l">L</span><span class="c-loader -o">o</span><span class="c-loader -a">a</span><span class="c-loader -d">d</span><span class="c-loader -i">i</span><span class="c-loader -n">n</span><span class="c-loader -g">g</span><span class="c-loader -dot">...</span>
+            <span class="c-loader">L</span><span class="c-loader">o</span><span class="c-loader">a</span><span class="c-loader">d</span><span class="c-loader">i</span><span class="c-loader">n</span><span class="c-loader">g</span><span class="c-loader">...</span>
           </p>
         </div>
       </div>

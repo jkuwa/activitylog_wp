@@ -8,26 +8,10 @@
   animation-fill-mode: forwards;
   animation-timing-function: steps(1);
 
-  &.-o {
-    animation-delay: .2s;
-  }
-  &.-a {
-    animation-delay: .4s;
-  }
-  &.-d {
-    animation-delay: .6s;
-  }
-  &.-i {
-    animation-delay: .8s;
-  }
-  &.-n {
-    animation-delay: 1s;
-  }
-  &.-g {
-    animation-delay: 1.2s;
-  }
-  &.-dot {
-    animation-delay: 1.4s;
+  @for $i from 2 through 8 {
+    &:nth-child(#{$i}) {
+      animation-delay: calc( 0.2s * ( #{$i} - 1 ) );
+    }
   }
 }
 
