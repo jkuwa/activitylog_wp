@@ -12,10 +12,12 @@
   }
 
   h3 {
-    font-size: 1.6rem;
+    @include m-plus1();
+    font-size: 1.4rem;
+    font-weight: 400;
 
     @include breakpoint(tablet) {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
 
