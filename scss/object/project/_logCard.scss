@@ -75,5 +75,13 @@
     @include breakpoint(tablet) {
       margin-top: 24px;
     }
+
+    p + p {
+      margin-top: 6px;
+
+      @include breakpoint(tablet) {
+        margin-top: 8px;
+      }
+    }
   }
 }

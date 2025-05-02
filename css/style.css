@@ -691,6 +691,14 @@ a:hover {
     margin-top: 24px;
   }
 }
+.p-logCard__text p + p {
+  margin-top: 6px;
+}
+@media (min-width: 768px) {
+  .p-logCard__text p + p {
+    margin-top: 8px;
+  }
+}
 
 /* ----- report section ----- */
 .p-report {
