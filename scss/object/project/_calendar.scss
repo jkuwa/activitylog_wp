@@ -5,6 +5,8 @@
   margin-inline: auto;
   width: 100%;
   max-width: 425px;
+  opacity: 0;
+  transition: opacity 1s .4s ease-in-out;
 
   @include breakpoint(tablet) {
     max-width: 500px;
@@ -141,5 +143,10 @@
         }
       }
     }
+  }
+
+  // animation
+  &.is-appeared {
+    opacity: 1;
   }
 }

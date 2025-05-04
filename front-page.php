@@ -16,7 +16,7 @@
         $about_id = $about_page -> ID;
     ?>
 
-    <section class="p-about">
+    <section class="p-about js-target">
       <h2><?php echo esc_html( $about_page -> post_title ); ?></h2>
 
       <?php if (has_post_thumbnail($about_id)): ?>
@@ -30,7 +30,7 @@
       ?>
     </section>
 
-    <div class="p-contents js-container">
+    <div class="p-contents js-target">
       <div class="p-contents__tabs" role="tablist" aria-label="活動記録タブ">
         <div class="c-inner">
           <button id="tab_log" class="c-button--tab js-tabBtn is-current" type="button" role="tab" aria-selected="true" aria-controls="log" tabindex="0" data-tab="log">log</button>
@@ -42,10 +42,10 @@
       <section id="log" class="c-content p-log js-tabContent is-open" role="tabpanel" aria-labelledby="tab_log" tabindex="0" data-tab="log">
         <div class="c-inner">
           <!-- CALENDAR -->
-          <div class="p-calendar js-calendar"></div>
+          <div class="p-calendar js-calendar js-target"></div>
 
           <!-- ARCHIVE -->
-          <ul class="p-log__archive js-archive"></ul>
+          <ul class="p-log__archive js-archive js-target"></ul>
         </div>
 
         <a href="#log" class="c-button--top js-topBtn">log top</a>

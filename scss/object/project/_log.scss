@@ -11,6 +11,8 @@
 
   &__archive {
     margin-top: 96px;
+    opacity: 0;
+    transition: opacity 1s .4s ease-in-out;
 
     @include breakpoint(tablet) {
       margin-top: 170px;
@@ -37,6 +39,10 @@
         left: 50%;
         transform: translateX(-50%);
       }
+    }
+
+    &.is-appeared {
+      opacity: 1;
     }
   }
 }

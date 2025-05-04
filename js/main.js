@@ -2,6 +2,21 @@
 
 jQuery(function() {
   // --------------------
+  // フェードインアニメーション
+  // --------------------
+  jQuery(window).on('scroll', function() {
+    jQuery(".js-target").each( function() {
+      const windowHeight = jQuery(window).height();
+      const scroll = jQuery(window).scrollTop();
+      const position = jQuery(this).offset().top;
+
+      if ( position < scroll + windowHeight ) {
+        jQuery(this).addClass('is-appeared');
+      }
+    });
+  });
+
+  // --------------------
   // タブ
   // --------------------
   jQuery(".js-tabBtn").on('click', function() {
