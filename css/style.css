@@ -209,7 +209,7 @@ a:hover {
   top: 62px;
   left: 0;
   opacity: 0;
-  transition: opacity 0.4s 0.2s ease-in-out, transform 0.4s 0.2s ease-in-out;
+  transition: opacity 0.8s 0.2s ease-in-out, transform 0.8s 0.2s ease-in-out;
 }
 @media (min-width: 768px) {
   .c-content {
