@@ -463,7 +463,7 @@ a:hover {
 .p-log__archive {
   margin-top: 96px;
   opacity: 0;
-  transition: opacity 1s 0.4s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 @media (min-width: 768px) {
   .p-log__archive {

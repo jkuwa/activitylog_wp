@@ -127,30 +127,42 @@ jQuery(function() {
   // アーカイブ表示
   function renderArchive(posts) {
     const archiveEl = document.querySelector(".js-archive");
-    archiveEl.innerHTML = '';
 
-    posts.forEach( post => {
-      const li = document.createElement('li');
-      const article = document.createElement('article');
-      article.classList.add('p-logCard');
+    // フェードアウト
+    archiveEl.style.transitionDuration = '.3s';
+    archiveEl.style.opacity = 0;
 
-      article.innerHTML = `
-        <h3><time datetime="${post.date}">${post.title}</time></h3>
-        <ul>
-          ${post.fields.map( field =>  `
-            <li class="p-logCard__cat">
-              <h4>${field.category || ''}</h4>
-              <p>${field.content || ''}</p>
-              <p class="c-hours">${field.hours || ''}</p>
-            </li>
-          `).join('')}
-        </ul>
-        <div class="p-logCard__text">${post.content}</div>
-      `;
+    // アーカイブ作成
+    setTimeout( () => {
+      archiveEl.innerHTML = '';
 
-      li.appendChild(article);
-      archiveEl.appendChild(li);
-    });
+      posts.forEach( post => {
+        const li = document.createElement('li');
+        const article = document.createElement('article');
+        article.classList.add('p-logCard');
+
+        article.innerHTML = `
+          <h3><time datetime="${post.date}">${post.title}</time></h3>
+          <ul>
+            ${post.fields.map( field =>  `
+              <li class="p-logCard__cat">
+                <h4>${field.category || ''}</h4>
+                <p>${field.content || ''}</p>
+                <p class="c-hours">${field.hours || ''}</p>
+              </li>
+            `).join('')}
+          </ul>
+          <div class="p-logCard__text">${post.content}</div>
+        `;
+
+        li.appendChild(article);
+        archiveEl.appendChild(li);
+      });
+
+      // フェードイン
+      archiveEl.style.transitionDuration = '1s';
+      archiveEl.style.opacity = 1;
+    }, 300);
   }
 
 
