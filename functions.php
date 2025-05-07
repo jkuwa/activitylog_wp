@@ -56,19 +56,17 @@
     $response = wp_remote_post($url, [
       'body' => $json,
       'headers' => [
-        'Content-Type' => 'application/json',
-        'Content-Length' => strlen($json)
-      ],
-      'method' => 'POST'
+        'Content-Type' => 'application/json'
+      ]
     ]);
 
     if ( is_wp_error($response) ) {
       error_log("Error sending data to Google Sheets:" . $response -> get_error_message());
     } else {
-      error_log("Success! Sending data: {$json} | Response: " . wp_remote_retrieve_body($response));
+      error_log("Success! Response: " . wp_remote_retrieve_body($response));
     }
   }
-  add_action('acf/save_post', 'send_log_data_to_sheet');
+  add_action('save_post', 'send_log_data_to_sheet');
 
 
   // --------- Full Calendar ---------
