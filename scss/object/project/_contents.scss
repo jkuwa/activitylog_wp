@@ -10,16 +10,11 @@
   transition: opacity 1s .4s ease-in-out;
 
   &__tabs {
-    padding-top: 6px;
+    padding-top: 10px;
     border-bottom: 1px solid $main-color;
-    position: relative;
 
-    button + button {
-      margin-left: 12px;
-
-      @include breakpoint(tablet) {
-        margin-left: 24px;
-      }
+    .c-inner {
+      margin-bottom: -1px;
     }
   }
 

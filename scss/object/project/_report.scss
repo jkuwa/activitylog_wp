@@ -4,7 +4,7 @@
 .p-report {
   padding: 96px 0 80px;
   overflow-x: hidden;
-  transform: translateX(50px);
+  transform: translateX(10%);
 
   @include breakpoint(tablet) {
     padding: 170px 0 120px;

@@ -66,14 +66,13 @@ a:hover {
 
 /* ----- button component ----- */
 .c-button--tab {
-  margin-bottom: -1px;
   padding: 15px 0 9px;
   width: 120px;
   border: 1px solid #246286;
   border-bottom: 1px solid #FEFEFE;
   border-radius: 8px 8px 0 0;
   text-align: center;
-  transition: padding 0.4s 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 @media (min-width: 768px) {
   .c-button--tab {
@@ -85,7 +84,7 @@ a:hover {
 }
 .c-button--tab:hover {
   font-weight: 700;
-  transform: translateY(-6px);
+  transform: translateY(-8px);
 }
 .c-button--tab.is-current {
   padding-bottom: 15px;
@@ -205,11 +204,12 @@ a:hover {
   background-position: 5px 5px;
   background-size: 15px 15px;
   background-repeat: repeat;
+  background-color: #FEFEFE;
   position: absolute;
   top: 62px;
   left: 0;
   opacity: 0;
-  transition: opacity 0.8s 0.2s ease-in-out, transform 0.8s 0.2s ease-in-out;
+  transition: opacity 0.4s 0.2s ease-in-out, transform 0.4s 0.2s ease-in-out;
 }
 @media (min-width: 768px) {
   .c-content {
@@ -434,17 +434,11 @@ a:hover {
   transition: opacity 1s 0.4s ease-in-out;
 }
 .p-contents__tabs {
-  padding-top: 6px;
+  padding-top: 10px;
   border-bottom: 1px solid #246286;
-  position: relative;
 }
-.p-contents__tabs button + button {
-  margin-left: 12px;
-}
-@media (min-width: 768px) {
-  .p-contents__tabs button + button {
-    margin-left: 24px;
-  }
+.p-contents__tabs .c-inner {
+  margin-bottom: -1px;
 }
 .p-contents.is-appeared {
   opacity: 1;
@@ -453,7 +447,7 @@ a:hover {
 /* ----- log section ----- */
 .p-log {
   padding: 92px 0 40px;
-  transform: translateX(-50px);
+  transform: translateX(-10%);
 }
 @media (min-width: 768px) {
   .p-log {
@@ -728,7 +722,7 @@ a:hover {
 .p-report {
   padding: 96px 0 80px;
   overflow-x: hidden;
-  transform: translateX(50px);
+  transform: translateX(10%);
 }
 @media (min-width: 768px) {
   .p-report {
