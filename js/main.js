@@ -85,44 +85,52 @@ jQuery(function() {
       firstDay: 1,
       contentHeight: 'auto',
       // イベント
-      events: async function(info, successCallback, failureCallback) {
-        // カレンダーの始まりの翌週を基準にする
-        const baseDate = new Date(info.start);
-        baseDate.setDate(baseDate.getDate() + 7);
-
-        const year = baseDate.getFullYear();
-        const month = String(baseDate.getMonth() + 1 ).padStart(2, '0');
-        const yyyymm = `${year}-${month}`;
-
-        // console.log(yyyymm);
-
-        try {
-          const response = await fetch(`wp-json/custom/v1/post-dates?month=${yyyymm}`);
-
-          if ( !response.ok ) {
-            throw new Error('イベントの取得に失敗しました');
-          }
-
-          const posts = await response.json();
-
-          const events = posts.map( post => ({
-            title: post.title,
-            start: post.date,
-            end: post.date,
-          }));
-
-          renderArchive(posts);
-          successCallback(events);
-
-        } catch (error) {
-          console.error(error);
-          failureCallback(error);
-        }
-      },
+      events: fetchCalendarEvents,
       eventDisplay: 'list-item',
     });
     calendar.render();
   });
+
+  // イベント作成
+  async function fetchCalendarEvents(info, successCallback, failureCallback) {
+    console.log(info);
+    // カレンダーの始まりの翌週を基準にする
+    // const baseDate = new Date(info.start);
+    const baseDate = info.start;
+    // console.log(info.start);
+    console.log(baseDate);
+    baseDate.setDate(baseDate.getDate() + 7);
+    console.log(baseDate);
+
+    const year = baseDate.getFullYear();
+    const month = String(baseDate.getMonth() + 1 ).padStart(2, '0');
+    const yyyymm = `${year}-${month}`;
+
+    console.log(yyyymm);
+
+    try {
+      const response = await fetch(`wp-json/custom/v1/post-dates?month=${yyyymm}`);
+
+      if ( !response.ok ) {
+        throw new Error('イベントの取得に失敗しました');
+      }
+
+      const posts = await response.json();
+
+      const events = posts.map( post => ({
+        title: post.title,
+        start: post.date,
+        end: post.date,
+      }));
+
+      renderArchive(posts);
+      successCallback(events);
+
+    } catch (error) {
+      console.error(error);
+      failureCallback(error);
+    }
+  }
 
   // アーカイブ表示
   function renderArchive(posts) {
@@ -146,7 +154,7 @@ jQuery(function() {
           <ul>
             ${post.fields.map( field =>  `
               <li class="p-logCard__cat">
-                <h4>${field.category || ''}</h4>
+                <h4>${field.category}</h4>
                 <p>${field.content || ''}</p>
                 <p class="c-hours">${field.hours || ''}</p>
               </li>

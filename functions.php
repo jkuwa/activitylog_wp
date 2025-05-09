@@ -70,14 +70,14 @@
 
 
   // --------- Full Calendar ---------
-  add_action('rest_api_init', function() {
+  function create_log_archive() {
     // エンドポイント作成
     register_rest_route('custom/v1', '/post-dates', [
       'methods' => 'GET',
       'callback' => 'get_post_dates',
       'permission_callback' => '__return_true',   // 誰でも取得できる
     ]);
-  });
+  };
 
   function get_post_dates($request) {
     $month = sanitize_text_field($request['month']);
@@ -134,3 +134,4 @@
     return rest_ensure_response($posts);
   }
 
+  add_action('rest_api_init', 'create_log_archive');
