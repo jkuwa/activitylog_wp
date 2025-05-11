@@ -312,24 +312,28 @@ a:hover {
   text-align: center;
 }
 .p-header svg {
-  width: clamp(208px, 50vw, 400px);
+  width: clamp(208px, 50vw, 300px);
   height: auto;
 }
 @media (min-width: 768px) {
   .p-header svg {
-    width: clamp(400px, 50vw, 600px);
+    width: clamp(300px, 35vw, 500px);
   }
 }
-.p-header__titleTxt {
-  fill: #246286;
-}
 .p-header__titleTxt path {
-  stroke-width: 0;
+  stroke: #246286;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (min-width: 768px) {
+  .p-header__titleTxt path {
+    stroke-width: 2;
+  }
 }
 .p-header__titleMask path {
-  fill: none;
   stroke: #FEFEFE;
-  stroke-dasharray: 3080px;
+  stroke-dasharray: 2100px;
   -webkit-animation: title 6s ease-in-out forwards;
           animation: title 6s ease-in-out forwards;
 }
@@ -337,7 +341,7 @@ a:hover {
 @-webkit-keyframes title {
   0% {
     opacity: 0;
-    stroke-dashoffset: 3080px;
+    stroke-dashoffset: 2100px;
   }
   100% {
     stroke-dashoffset: 0;
@@ -348,7 +352,7 @@ a:hover {
 @keyframes title {
   0% {
     opacity: 0;
-    stroke-dashoffset: 3080px;
+    stroke-dashoffset: 2100px;
   }
   100% {
     stroke-dashoffset: 0;
