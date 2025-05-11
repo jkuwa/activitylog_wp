@@ -61,7 +61,6 @@
             </fieldset>
   
             <div class="p-report__select">
-              <!-- <label for="month">select month: </label> -->
               <input type="month" id="month" class="js-select is-open">
               <select name="year" class="js-select">
                 <option value="2025" selected>2025年</option>
