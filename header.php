@@ -6,6 +6,8 @@
   <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
+  <?php wp_body_open(); ?>
+  
   <header class="l-header p-header">
     <h1>
       <?php bloginfo('name'); ?>

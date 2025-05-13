@@ -1,6 +1,8 @@
 <?php
   // テーマサポート
+  add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
+  add_theme_support('automatic-feed-links');
 
   // --------- ファイル読み込み ---------
   function activityLog_script() {
@@ -15,8 +17,8 @@
 
     // JS
     wp_enqueue_script('full-calendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js', array(), false, true);
-    wp_enqueue_script('chart', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js', array(), false, true);
-    wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array('chart'), false, true);
+    wp_enqueue_script('chart', get_theme_file_uri('/js/chart.umd.js'), array(), '4.4.9', true);
+    wp_enqueue_script('jquery');
     wp_enqueue_script('my-script', get_theme_file_uri('/js/main.js'), array('jquery'), false, true);
   }
   add_action('wp_enqueue_scripts', 'activityLog_script');
