@@ -36,7 +36,7 @@
   &__titleMask {
     path {
       stroke: $bg-color;
-      stroke-dasharray: 2150px;
+      stroke-dasharray: 2170px;
       animation: title 5s ease-in-out forwards;
     }
   }
@@ -45,7 +45,7 @@
 @keyframes title {
   0% {
     opacity: 0;
-    stroke-dashoffset: 2150px;
+    stroke-dashoffset: 2170px;
   }
   100% {
     stroke-dashoffset: 0;
