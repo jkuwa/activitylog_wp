@@ -102,13 +102,11 @@
       </div>
 
       <div class="p-loader js-loader">
-        <div class="p-loader__wrapper">
-
-          <div class="p-loader__bg"></div>
-            
+        <div class="p-loader__wrapper">  
           <p>
             <span class="c-loader">L</span><span class="c-loader">o</span><span class="c-loader">a</span><span class="c-loader">d</span><span class="c-loader">i</span><span class="c-loader">n</span><span class="c-loader">g</span><span class="c-loader">...</span>
           </p>
+          <div class="p-loader__book"></div>
         </div>
       </div>
 
