@@ -93,20 +93,13 @@ jQuery(function() {
 
   // イベント作成
   async function fetchCalendarEvents(info, successCallback, failureCallback) {
-    console.log(info);
     // カレンダーの始まりの翌週を基準にする
-    // const baseDate = new Date(info.start);
     const baseDate = info.start;
-    // console.log(info.start);
-    console.log(baseDate);
     baseDate.setDate(baseDate.getDate() + 7);
-    console.log(baseDate);
 
     const year = baseDate.getFullYear();
     const month = String(baseDate.getMonth() + 1 ).padStart(2, '0');
     const yyyymm = `${year}-${month}`;
-
-    console.log(yyyymm);
 
     try {
       const response = await fetch(`wp-json/custom/v1/post-dates?month=${yyyymm}`);
