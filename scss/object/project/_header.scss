@@ -23,13 +23,9 @@
   &__titleTxt {
     path {
       stroke: $main-color;
-      stroke-width: 1;
+      stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-
-      @include breakpoint(tablet) {
-        stroke-width: 2;
-      }
     }
   }
 

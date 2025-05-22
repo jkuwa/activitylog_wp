@@ -324,14 +324,9 @@ a:hover {
 }
 .p-header__titleTxt path {
   stroke: #246286;
-  stroke-width: 1;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-@media (min-width: 768px) {
-  .p-header__titleTxt path {
-    stroke-width: 2;
-  }
 }
 .p-header__titleMask path {
   stroke: #FEFEFE;
