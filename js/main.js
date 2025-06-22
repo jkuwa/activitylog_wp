@@ -234,17 +234,29 @@ jQuery(function() {
     const allDateKeys = [...new Set( dataArr.flatMap( item => Object.keys(item)))];
     allDateKeys.sort( (a, b) => a.localeCompare(b, undefined, {numeric: true}) );   // 順に並べる
     const labels = allDateKeys;
+    const palette = [
+      '#FFD7DC',
+      '#BCDAF3',
+      '#FFB29D',
+      '#C9EFD2',
+      '#F9E4A7',
+      '#D4C5F3',
+      '#D9D5CC',
+      '#EDC2C9',
+      '#F0CFB7',
+    ];
 
     // カテゴリ名取得
     const categories = Object.keys(data);
 
     // データセット
-    const datasets = categories.map( category => {
+    const datasets = categories.map( (category, index) => {
       return {
         label: category,
         data: labels.map( dateKey => {
           return data[category][dateKey] ? data[category][dateKey] : 0;
-        })
+        }),
+        backgroundColor: palette[index % palette.length],
       };
     });
 
