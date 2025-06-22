@@ -48,6 +48,7 @@
     if ( empty($log_data) ) return;
 
     $data = [
+      'id' => $post_id,
       'date' => $date,
       'log' => $log_data
     ];
@@ -135,5 +136,4 @@
     // error_log( print_r($posts, true));
     return rest_ensure_response($posts);
   }
-
   add_action('rest_api_init', 'create_log_archive');
