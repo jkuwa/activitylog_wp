@@ -70,34 +70,25 @@
             </div>
           </div>
   
-          <div class="p-graph">
-  
-            <section class="p-graph__weekly">
-              <h2>活動時間</h2>
-              <div class="p-graph__content">
-                <canvas class="js-chart" aria-label="月の学習時間グラフ"></canvas>
-              </div>
-              <dl>
-                <dt>合計</dt>
-                <dd class="c-hours js-total"></dd>
-              </dl>
-            </section>
-            
-            <section class="p-graph__ranking">
+          <section class="p-graph">
+            <h2>activity time</h2>
 
-              <div class="c-blowing">
-                <svg width="444" height="352" viewBox="0 0 444 352" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M364.702 69.8139C445.642 106.079 461.935 206.991 421.465 271.637M3.62791 225.912C31.2617 411.5 359.972 353.102 409.377 286.879M1 204.888C1 26.5 274.302 19.3581 326.86 46.6884C333.167 49.968 353.586 16.7163 360.5 2C360.5 2 365.802 37.2442 358 42.5" stroke="#246286"/>
-                </svg>
+            <div class="p-graph__contents">
+              <div class="p-graph__time">
+                <canvas class="js-chart" aria-label="学習時間グラフ"></canvas>
               </div>
 
-              <h2>カテゴリー別<span>TOP</span><span>3</span></h2>
-              <table class="p-table">
-                <tbody class="js-table"></tbody>
-              </table>
-
-            </section>
-          </div>
+              <div class="p-graph__ranking">
+                <table class="p-table">
+                  <tbody class="js-table"></tbody>
+                </table>
+                <dl>
+                  <dt>合計</dt>
+                  <dd class="c-hours js-total"></dd>
+                </dl>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
 

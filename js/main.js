@@ -329,7 +329,7 @@ jQuery(function() {
             }
           }
         },
-        barPercentage: 0.5,
+        barPercentage: 0.75,
         maintainAspectRatio: false,
         animation: {
           onProgress: () => {
@@ -367,19 +367,19 @@ jQuery(function() {
       const number = index + 1;
       let text = '';
 
-      text += '<tr class="js-ranking' + number + '">';
-      text += '<th><span>0' + number + '</span></th>';
-      text += '<td class="p-table__category">' + category + '</td>';
-      text += '<td class="c-hours p-table__hours">' + hours + '</td>';
-      text += '<td class="p-table__per">' + percentage + '</td>';
+      text += `<tr class="js-ranking${number}">`;
+      text += `<th><span>0${number}</span></th>`;
+      text += `<td class="p-table__category">${category}</td>`;
+      text += `<td class="c-hours p-table__hours">${hours}</td>`;
+      text += `<td class="p-table__per">${percentage}</td>`;
       text += '</tr>';
       
       // HTML作成
       categoryRanking.insertAdjacentHTML('beforeend', text);
 
       // スタイル指定
-      const tableHead = '.js-ranking' + number + ' > th';
-      document.querySelector(tableHead).style.setProperty('--cat-color', color);
+      const tableRow = `.js-ranking${number}`;
+      document.querySelector(tableRow).style.setProperty('--cat-color', color);
     });
   }
 
