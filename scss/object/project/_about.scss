@@ -15,6 +15,7 @@
   h2 {
     font-size: 1.6rem;
     font-weight: 400;
+    letter-spacing: 0.1em;
     opacity: 0;
     transition: opacity 1s .4s ease-in-out;
 
@@ -47,12 +48,14 @@
     width: 100%;
     max-width: 300px;
     font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    line-height: 1.7;
     opacity: 0;
     transition: opacity 1s .8s ease-in-out;
 
     @include breakpoint(tablet) {
       margin-top: 40px;
-      max-width: 480px;
+      max-width: 512px;
       font-size: 1.6rem;
       text-align: center;
     }

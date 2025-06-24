@@ -372,6 +372,7 @@ a:hover {
 .p-about h2 {
   font-size: 1.6rem;
   font-weight: 400;
+  letter-spacing: 0.1em;
   opacity: 0;
   transition: opacity 1s 0.4s ease-in-out;
 }
@@ -404,13 +405,15 @@ a:hover {
   width: 100%;
   max-width: 300px;
   font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
   opacity: 0;
   transition: opacity 1s 0.8s ease-in-out;
 }
 @media (min-width: 768px) {
   .p-about p {
     margin-top: 40px;
-    max-width: 480px;
+    max-width: 512px;
     font-size: 1.6rem;
     text-align: center;
   }
