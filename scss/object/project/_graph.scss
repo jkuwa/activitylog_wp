@@ -85,6 +85,10 @@
         }
       }
 
+      dt {
+        letter-spacing: 0.2em
+      }
+
       dd {
         @include m-plus1();
       }

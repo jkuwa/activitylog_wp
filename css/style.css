@@ -185,9 +185,6 @@ a:hover {
 }
 
 /* ----- text component ----- */
-.c-hours {
-  letter-spacing: 0.05em;
-}
 .c-hours::after {
   content: "h";
   margin-left: 2px;
@@ -889,6 +886,9 @@ a:hover {
     font-size: 1.6rem;
   }
 }
+.p-graph__ranking dl dt {
+  letter-spacing: 0.2em;
+}
 .p-graph__ranking dl dd {
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
@@ -956,7 +956,6 @@ a:hover {
 .p-table__hours {
   width: 21.4%;
   font-family: "M PLUS Rounded 1c", sans-serif;
-  letter-spacing: 0;
   text-align: right;
 }
 .p-table__per {
