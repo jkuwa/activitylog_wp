@@ -144,15 +144,15 @@ jQuery(function() {
 
         article.innerHTML = `
           <h3><time datetime="${post.date}">${post.title}</time></h3>
-          <ul>
+          <table>
             ${post.fields.map( field =>  `
-              <li class="p-logCard__cat">
-                <h4>${field.category}</h4>
-                <p>${field.content || ''}</p>
-                <p class="c-hours">${field.hours || ''}</p>
-              </li>
+              <tr>
+                <th>${field.category}</th>
+                <td class="p-logCard__desc">${field.content || ''}</td>
+                <td class="c-hours">${field.hours || ''}</td>
+              </tr>
             `).join('')}
-          </ul>
+          </table>
           <div class="p-logCard__text">${post.content}</div>
         `;
 
