@@ -238,9 +238,9 @@ jQuery(function() {
     const palette = [
       '#FFD7DC',
       '#BCDAF3',
-      '#FFB29D',
-      '#C9EFD2',
       '#F9E4A7',
+      '#C9EFD2',
+      '#FFB29D',
       '#D4C5F3',
       '#D9D5CC',
       '#EDC2C9',
