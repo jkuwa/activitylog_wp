@@ -140,6 +140,7 @@ jQuery(function() {
       posts.forEach( post => {
         const li = document.createElement('li');
         const article = document.createElement('article');
+        li.classList.add('js-target');
         article.classList.add('p-logCard');
 
         article.innerHTML = `

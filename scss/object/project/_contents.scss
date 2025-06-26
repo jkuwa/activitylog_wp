@@ -6,8 +6,6 @@
   border-bottom: 1px solid $gray-color;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 1s .4s ease-in-out;
 
   &__tabs {
     padding-top: 10px;
@@ -16,10 +14,5 @@
     .c-inner {
       margin-bottom: -1px;
     }
-  }
-
-  // animation
-  &.is-appeared {
-    opacity: 1;
   }
 }

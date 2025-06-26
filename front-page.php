@@ -16,18 +16,21 @@
         $about_id = $about_page -> ID;
     ?>
 
-    <section class="p-about js-target">
-      <h2><?php echo esc_html( $about_page -> post_title ); ?></h2>
+    <section class="p-about">
+      <h2 class="js-target"><?php echo esc_html( $about_page -> post_title ); ?></h2>
 
       <?php if (has_post_thumbnail($about_id)): ?>
         
-      <figure><?php echo get_the_post_thumbnail($about_id, 'full'); ?></figure>
+      <figure class="js-target"><?php echo get_the_post_thumbnail($about_id, 'full'); ?></figure>
 
+      <?php endif; ?>
+      <div class="js-target">
       <?php
-        endif;
         echo apply_filters('the_content', $about_page -> post_content);
-      endif;
       ?>
+      </div>
+        
+    <?php endif; ?>
     </section>
 
     <div class="p-contents js-target">
@@ -45,7 +48,7 @@
           <div class="p-calendar js-calendar js-target"></div>
 
           <!-- ARCHIVE -->
-          <ul class="p-log__archive js-archive js-target"></ul>
+          <ul class="p-log__archive js-archive"></ul>
         </div>
 
         <a href="#log" class="c-button--top js-topBtn">log top</a>

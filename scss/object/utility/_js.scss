@@ -1,0 +1,13 @@
+@use "../../foundation/variables" as *;
+
+/* ----- javascript animation ----- */
+.js-target {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .3s .2s, transform .6s .2s cubic-bezier(.4,.4,0,1);
+
+  &.is-appeared {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
