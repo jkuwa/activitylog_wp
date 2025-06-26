@@ -4,15 +4,20 @@
 .p-contents {
   width: 100%;
   border-bottom: 1px solid $gray-color;
-  position: relative;
   overflow: hidden;
 
   &__tabs {
     padding-top: 10px;
     border-bottom: 1px solid $main-color;
+    background-color: $bg-color;
 
     .c-inner {
       margin-bottom: -1px;
     }
+  }
+
+  &__content {
+    position: relative;
+    border-top: 1px solid $gray-color;
   }
 }

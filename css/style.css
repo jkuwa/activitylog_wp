@@ -197,29 +197,15 @@ a:hover {
 .c-content {
   width: 100%;
   visibility: hidden;
-  border-top: 1px solid #D7D7D7;
-  background-image: linear-gradient(rgba(217, 217, 217, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 217, 217, 0.3) 1px, transparent 1px);
-  background-position: 5px 5px;
-  background-size: 15px 15px;
-  background-repeat: repeat;
-  background-color: #FEFEFE;
   position: absolute;
-  top: 62px;
+  top: 0;
   left: 0;
   opacity: 0;
   transition: opacity 0.4s 0.2s ease-in-out, transform 0.6s 0.2s cubic-bezier(0.4, 0.4, 0, 1);
 }
-@media (min-width: 768px) {
-  .c-content {
-    background-position: 10px 10px;
-    background-size: 20px 20px;
-    top: 86px;
-  }
-}
 .c-content.is-open {
   visibility: visible;
   position: relative;
-  top: 0;
   opacity: 1;
   transform: translateX(0);
 }
@@ -354,10 +340,24 @@ a:hover {
     opacity: 1;
   }
 }
+/* ----- main ----- */
+.p-main {
+  background-image: linear-gradient(rgba(217, 217, 217, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 217, 217, 0.3) 1px, transparent 1px);
+  background-attachment: fixed;
+  background-size: 15px 15px;
+  background-repeat: repeat;
+}
+@media (min-width: 768px) {
+  .p-main {
+    background-size: 20px 20px;
+  }
+}
+
 /* ----- about ----- */
 .p-about {
   padding-bottom: 180px;
   width: 100%;
+  background: #FEFEFE;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -421,15 +421,19 @@ a:hover {
 .p-contents {
   width: 100%;
   border-bottom: 1px solid #D7D7D7;
-  position: relative;
   overflow: hidden;
 }
 .p-contents__tabs {
   padding-top: 10px;
   border-bottom: 1px solid #246286;
+  background-color: #FEFEFE;
 }
 .p-contents__tabs .c-inner {
   margin-bottom: -1px;
+}
+.p-contents__content {
+  position: relative;
+  border-top: 1px solid #D7D7D7;
 }
 
 /* ----- log section ----- */

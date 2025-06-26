@@ -1,0 +1,13 @@
+@use "../../foundation/variables" as *;
+
+/* ----- main ----- */
+.p-main {
+  background-image: linear-gradient($border-color 1px, transparent 1px), linear-gradient(90deg, $border-color 1px, transparent 1px);
+  background-attachment: fixed;
+  background-size: 15px 15px;
+  background-repeat: repeat;
+
+  @include breakpoint(tablet) {
+    background-size: 20px 20px;
+  }
+}
