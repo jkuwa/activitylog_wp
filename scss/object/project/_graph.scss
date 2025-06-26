@@ -91,6 +91,7 @@
 
       dd {
         @include m-plus1();
+        letter-spacing: 0.08em;
       }
     }
   }
