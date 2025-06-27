@@ -3,8 +3,7 @@
 /* ----- report section ----- */
 .p-report {
   padding: 96px 0 80px;
-  overflow-x: hidden;
-  transform: translateX(10%);
+  transform: translateX(100%);
 
   @include breakpoint(tablet) {
     padding: 170px 0 120px;

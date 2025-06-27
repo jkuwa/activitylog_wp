@@ -17,7 +17,9 @@
   }
 
   &__content {
+    width: 100%;
     position: relative;
     border-top: 1px solid $gray-color;
+    overflow: hidden;
   }
 }
