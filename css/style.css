@@ -940,6 +940,7 @@ a:hover {
 }
 .p-table__category {
   text-align: left;
+  white-space: nowrap;
 }
 .p-table__hours {
   width: 21.4%;
