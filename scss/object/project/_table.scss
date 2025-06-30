@@ -11,20 +11,6 @@
 
   tr {
     background-color: var(--cat-color);
-    position: relative;
-
-    &::before {
-      content: "";
-      width: 70%;
-      height: 50%;
-      background-color: #d0d0d0;
-      position: absolute;
-      bottom: -1px;
-      right: 9px;;
-      z-index: -1;
-      transform: rotate(5deg);
-      filter: blur(4px);
-    }
 
     &:first-child th::before {
       content: "";
@@ -63,8 +49,22 @@
   }
 
   &__category {
+    position: relative;
     text-align: left;
     white-space: nowrap;
+
+    &::before {
+      content: "";
+      width: 118px;
+      height: 23px;
+      background-color: #d0d0d0;
+      position: absolute;
+      bottom: -1px;
+      left: calc(100% + 12px);
+      z-index: -1;
+      transform: rotate(5deg);
+      filter: blur(4px);
+    }
   }
 
   &__hours {

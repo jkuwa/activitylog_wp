@@ -887,19 +887,6 @@ a:hover {
 }
 .p-table tr {
   background-color: var(--cat-color);
-  position: relative;
-}
-.p-table tr::before {
-  content: "";
-  width: 70%;
-  height: 50%;
-  background-color: #d0d0d0;
-  position: absolute;
-  bottom: -1px;
-  right: 9px;
-  z-index: -1;
-  transform: rotate(5deg);
-  filter: blur(4px);
 }
 .p-table tr:first-child th::before {
   content: "";
@@ -933,8 +920,21 @@ a:hover {
   padding-left: 8px;
 }
 .p-table__category {
+  position: relative;
   text-align: left;
   white-space: nowrap;
+}
+.p-table__category::before {
+  content: "";
+  width: 118px;
+  height: 23px;
+  background-color: #d0d0d0;
+  position: absolute;
+  bottom: -1px;
+  left: calc(100% + 12px);
+  z-index: -1;
+  transform: rotate(5deg);
+  filter: blur(4px);
 }
 .p-table__hours {
   width: 21.4%;
