@@ -8,6 +8,7 @@
   border: 1px solid $main-color;
   border-bottom: 1px solid $bg-color;
   border-radius: 8px 8px 0 0;
+  @include m-plus1();
   letter-spacing: 0.05em;
   text-align: center;
   transition: transform .2s ease-in-out;
