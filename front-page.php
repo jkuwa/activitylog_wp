@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
-  <main class="c-bg--check l-main">
+  <main class="l-main">
     <!-- ABOUT SECTION -->
-
     <?php
       $about = get_posts( array(
         'name' => 'about',

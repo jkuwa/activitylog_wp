@@ -4,12 +4,29 @@
 .p-contents {
   width: 100%;
   border-bottom: 1px solid $gray-color;
+  position: relative;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    background-image: linear-gradient($border-color 1px, transparent 1px), linear-gradient(90deg, $border-color 1px, transparent 1px);
+    background-attachment: fixed;
+    background-size: 15px 15px;
+    background-repeat: repeat;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    @include breakpoint(tablet) {
+      background-size: 20px 20px;
+    }
+  }
 
   &__tabs {
     padding-top: 10px;
     border-bottom: 1px solid $main-color;
     background-color: $bg-color;
+    position: relative;
 
     .c-inner {
       margin-bottom: -1px;

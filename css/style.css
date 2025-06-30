@@ -272,23 +272,11 @@ a:hover {
     opacity: 1;
   }
 }
-/* ----- background component ----- */
-.c-bg--check {
-  background-image: linear-gradient(rgba(217, 217, 217, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 217, 217, 0.3) 1px, transparent 1px);
-  background-attachment: fixed;
-  background-size: 15px 15px;
-  background-repeat: repeat;
-}
-@media (min-width: 768px) {
-  .c-bg--check {
-    background-size: 20px 20px;
-  }
-}
-
 /* ----- header ----- */
 .p-header {
   display: grid;
   place-content: center;
+  background-color: #FEFEFE;
 }
 .p-header h1 {
   font-size: 0;
@@ -411,12 +399,29 @@ a:hover {
 .p-contents {
   width: 100%;
   border-bottom: 1px solid #D7D7D7;
+  position: relative;
   overflow: hidden;
+}
+.p-contents::before {
+  content: "";
+  background-image: linear-gradient(rgba(217, 217, 217, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 217, 217, 0.3) 1px, transparent 1px);
+  background-attachment: fixed;
+  background-size: 15px 15px;
+  background-repeat: repeat;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+@media (min-width: 768px) {
+  .p-contents::before {
+    background-size: 20px 20px;
+  }
 }
 .p-contents__tabs {
   padding-top: 10px;
   border-bottom: 1px solid #246286;
   background-color: #FEFEFE;
+  position: relative;
 }
 .p-contents__tabs .c-inner {
   margin-bottom: -1px;
@@ -1015,6 +1020,9 @@ a:hover {
   }
 }
 /* ----- footer ----- */
+.p-footer {
+  background-color: #FEFEFE;
+}
 .p-footer small {
   display: block;
   font-size: 1.2rem;

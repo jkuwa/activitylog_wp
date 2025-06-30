@@ -4,6 +4,7 @@
 .p-header {
   display: grid;
   place-content: center;
+  background-color: $bg-color;
 
   h1 {
     font-size: 0;
