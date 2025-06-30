@@ -23,12 +23,11 @@
 @use "object/component/text";
 @use "object/component/content";
 @use "object/component/animation";
-@use "object/component/blowing";
+@use "object/component/bg";
 
 
 //  ----- project ----- 
 @use "object/project/header";
-@use "object/project/main";
 @use "object/project/about";
 @use "object/project/contents";
 @use "object/project/log";

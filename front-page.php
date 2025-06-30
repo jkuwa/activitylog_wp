@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <main class="l-main p-main">
+  <main class="c-bg--check l-main">
     <!-- ABOUT SECTION -->
 
     <?php
@@ -105,7 +105,6 @@
           <div class="p-loader__book"></div>
         </div>
       </div>
-
     </div>
   </main>
 

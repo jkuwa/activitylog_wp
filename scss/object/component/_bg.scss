@@ -1,7 +1,7 @@
 @use "../../foundation/variables" as *;
 
-/* ----- main ----- */
-.p-main {
+/* ----- background component ----- */
+.c-bg--check {
   background-image: linear-gradient($border-color 1px, transparent 1px), linear-gradient(90deg, $border-color 1px, transparent 1px);
   background-attachment: fixed;
   background-size: 15px 15px;

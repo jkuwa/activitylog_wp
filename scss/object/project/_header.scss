@@ -6,9 +6,7 @@
   place-content: center;
 
   h1 {
-    margin-top: -56px;
     font-size: 0;
-    text-align: center;
   }
 
   svg {
@@ -16,16 +14,17 @@
     height: auto;
 
     @include breakpoint(tablet) {
-      width: clamp(300px, 35vw, 500px);
+      width: clamp(300px, 48.8vw, 500px);
     }
   }
 
   &__titleTxt {
     path {
       stroke: $main-color;
-      stroke-width: 2;
+      stroke-width: 1.4;
       stroke-linecap: round;
       stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
     }
   }
 
@@ -42,6 +41,9 @@
   0% {
     opacity: 0;
     stroke-dashoffset: 2170px;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
