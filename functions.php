@@ -24,54 +24,6 @@
   add_action('wp_enqueue_scripts', 'activityLog_script');
 
 
-  // --------- 投稿データをスプシに送信 ---------
-  function send_log_data_to_sheet($post_id) {
-
-    $post = get_post($post_id);
-    if ($post -> post_type !== 'log') return;
-
-    $date = get_the_date('Y-m-d', $post_id);
-    $log_data = [];
-
-    for ($i =1; $i <= 6; $i++) {
-      $category = get_post_meta($post_id, "category_0{$i}", true);
-      $hours = get_post_meta($post_id, "hours_0{$i}", true);
-
-      if ( $category && $hours ) {
-        $log_data[] = [
-          'category' => $category,
-          'hours' => $hours
-        ];
-      }
-    }
-
-    if ( empty($log_data) ) return;
-
-    $data = [
-      'id' => $post_id,
-      'date' => $date,
-      'log' => $log_data
-    ];
-
-    $json = wp_json_encode($data);
-    $url = 'https://script.google.com/macros/s/AKfycbxOQ_9cM_y_SMrZ-yr0GIZp5xBVTTyhnMGObCCdx7TJCRy184F6xkN_ZZeLqMDiHGvGAQ/exec';
-
-    $response = wp_remote_post($url, [
-      'body' => $json,
-      'headers' => [
-        'Content-Type' => 'application/json'
-      ]
-    ]);
-
-    if ( is_wp_error($response) ) {
-      error_log("Error sending data to Google Sheets:" . $response -> get_error_message());
-    } else {
-      error_log("Success! Response: " . wp_remote_retrieve_body($response));
-    }
-  }
-  add_action('save_post', 'send_log_data_to_sheet');
-
-
   // --------- Full Calendar ---------
   function create_log_archive() {
     // エンドポイント作成
@@ -137,3 +89,103 @@
     return rest_ensure_response($posts);
   }
   add_action('rest_api_init', 'create_log_archive');
+
+
+  // --------- Chart.js---------
+  // エンドポイント作成
+  function create_chart() {
+    register_rest_route('custom/v1', '/chart-data', [
+      'methods' => 'GET',
+      'callback' => 'get_chart_data',
+      'permission_callback' => '__return_true',
+    ]);
+  };
+
+  function get_chart_data($request) {
+    $mode = sanitize_text_field($request['mode']);
+    $year = sanitize_text_field($request['year']);
+    $month = sanitize_text_field($request['month']);
+
+    $args = [
+      'post_type' => 'log',
+      'posts_per_page' => -1,
+      'post_status' => 'publish',
+      'date_query' => ( $mode === 'month' )
+        ? [['year' => $year, 'month' => $month,]]
+        : ['year' => $year]
+    ];
+
+    $query = new WP_Query($args);
+    $organizedData = [];
+    $categoryTotals = [];
+    $totalHours = 0;
+
+    // 投稿データーからグラフデータ取得
+    foreach( $query -> posts as $post ) {
+      $id = $post -> ID;
+      $postDate = new DateTime( get_the_date('Y-m-d', $post) );
+
+      // この投稿のkey設定
+      $postKey = ( $mode === 'month' )
+        ? 'week ' . ceil( $postDate -> format('d') / 7 )
+        : $postDate -> format('m');
+
+      // データ抽出
+      for ( $i=1; $i<=6; $i++) {
+        $category = get_post_meta( $id, "category_0{$i}", true);
+        $hours = floatval( get_post_meta( $id, "hours_0{$i}", true) );
+
+        if (!$category || !$hours) continue;  // 空ならスキップ
+
+        // カテゴリデータの初期化
+        if ( empty($organizedData[$category]) ) {
+          $organizedData[$category] = [];
+
+          // mode別でkey作成
+          if ( $mode === 'month' ) {
+            $weeks = ceil( $postDate -> format('t') / 7 );
+            for ( $w=1; $w<=$weeks; $w++) {
+              $key = "week {$w}";
+              $organizedData[$category][$key] = 0;
+            }
+          } else {
+            for ( $m=1; $m<=12; $m++ ) {
+              $key = str_pad($m, 2, '0', STR_PAD_LEFT);
+              $organizedData[$category][$key] = 0;
+            }
+          }
+        }
+
+        // データ追加
+        $organizedData[$category][$postKey] += $hours;   //グラフ用
+        $totalHours += $hours;   // 合計表示用
+
+        // ランキング用
+        if ( empty($categoryTotals[$category]) ) {
+          $categoryTotals[$category] = 0;
+        }
+        $categoryTotals[$category] += $hours;
+      }
+    }
+
+    // --- 調整 ---
+    // hours で降順ソート、上位3件取得
+    arsort($categoryTotals);
+    $topCategories = array_slice($categoryTotals, 0, 3);
+
+    // 割合追加
+    $topCategories = array_map(function($category, $hours) use ($totalHours) {
+      return [
+        'category' => $category,
+        'hours' => $hours,
+        'per' => round( ( $hours / $totalHours) * 100 ),
+      ];
+    }, array_keys($topCategories), array_values($topCategories));
+
+    return rest_ensure_response([
+      'data' => $organizedData,
+      'total' => $totalHours,
+      'ranking' => $topCategories,
+    ]);
+  }
+  add_action('rest_api_init', 'create_chart');

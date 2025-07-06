@@ -192,32 +192,32 @@ jQuery(function() {
     document.querySelector(".js-loader").classList.add('is-appeared');
   });
   
-  // GASからデータ取得
+  // データ取得
   async function fetchData() {
     const modeSelect = document.querySelector('input[name="mode"]:checked').value;
     const monthValue = document.querySelector("#month").value;
     const yearValue = document.querySelector('select[name="year"]').value;
 
-    let url = 'https://script.google.com/macros/s/AKfycbxOQ_9cM_y_SMrZ-yr0GIZp5xBVTTyhnMGObCCdx7TJCRy184F6xkN_ZZeLqMDiHGvGAQ/exec';
+    let endpoint = '/wp-json/custom/v1/chart-data';
     let title = '';
 
     if ( modeSelect === 'month' ) {
       const [year, month] = monthValue.split("-");
-      url += `?mode=month&year=${year}&month=${month}`;
+      endpoint += `?mode=month&year=${year}&month=${month}`
       title = `${year}/${month}`;
 
     } else if ( modeSelect === 'year' ) {
-      url += `?mode=year&year=${yearValue}`;
+      endpoint += `?mode=year&year=${yearValue}`
       title = yearValue + '年';
-    }   
+    }
 
     try {
-      const response = await fetch (url);   // 非同期でデータ取得
+      const response = await fetch (endpoint);   // 非同期でデータ取得
       const data = await response.json();   // JSON読み取り
 
       const organizedData = data.data;
-      const totalHours = data.totalHours;
-      const categoryRanking = data.categoryRanking;
+      const totalHours = data.total;
+      const categoryRanking = data.ranking;
 
       updateChart(organizedData, title, categoryRanking);
       setTotal(totalHours);
@@ -363,7 +363,7 @@ jQuery(function() {
     topCategories.forEach( (item, index) => {
       const category = item.category;
       const hours = item.hours;
-      const percentage = item.percentage;
+      const percentage = item.per;
       const color = item.color;
       const number = index + 1;
       let text = '';
