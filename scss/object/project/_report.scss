@@ -74,10 +74,10 @@
     }
 
     button {
-      padding: 4px 16px;
+      padding: 2px 16px 6px;
 
       @include breakpoint(tablet) {
-        padding: 6px 18px;
+        padding: 4px 18px 8px;
       }
     }
   }

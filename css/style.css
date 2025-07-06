@@ -777,11 +777,11 @@ a:hover {
   display: block;
 }
 .p-report__select button {
-  padding: 4px 16px;
+  padding: 2px 16px 6px;
 }
 @media (min-width: 768px) {
   .p-report__select button {
-    padding: 6px 18px;
+    padding: 4px 18px 8px;
   }
 }
 

@@ -69,7 +69,7 @@
                   <option value="2025" selected>2025年</option>
                   <option value="2024">2024年</option>
                 </select>
-                <button class="c-button--select js-setBtn">select</button>
+                <button class="c-button--select js-setBtn">apply</button>
               </div>
             </div>
     
