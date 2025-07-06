@@ -99,10 +99,9 @@ jQuery(function() {
 
     const year = baseDate.getFullYear();
     const month = String(baseDate.getMonth() + 1 ).padStart(2, '0');
-    const yyyymm = `${year}-${month}`;
 
     try {
-      const response = await fetch(`wp-json/custom/v1/post-dates?month=${yyyymm}`);
+      const response = await fetch(`wp-json/custom/v1/post-dates?year=${year}&month=${month}`);
 
       if ( !response.ok ) {
         throw new Error('イベントの取得に失敗しました');

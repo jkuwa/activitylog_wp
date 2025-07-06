@@ -35,9 +35,8 @@
   };
 
   function get_post_dates($request) {
+    $year = sanitize_text_field($request['year']);
     $month = sanitize_text_field($request['month']);
-    $start = $month . '-01';   // 月の1日
-    $end = date('Y-m-t', strtotime($start));   // 月の最終日
 
     $args = [
       'post_type' => 'log',
@@ -45,8 +44,8 @@
       'post_status' => 'publish',
       'date_query' => [
         [
-          'after' => $start,
-          'before' => $end,
+          'year' => $year,
+          'month' => $month,
           'inclusive' => true,   // afterとbeforeに指定した日も含める
         ]
       ]
