@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Webサイト制作を中心に、コーディングからWordPress開発まで対応可能なフリーランスコーダー「くわじゅんな」の活動記録です。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="activity log - くわの記録">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://log.junna-kuwa.com/">
+  <meta property="og:description" content="Webサイト制作を中心に、コーディングからWordPress開発まで対応可能なフリーランスコーダー「くわじゅんな」の活動記録です。">
+  <meta property="og:image" content="https://log.junna-kuwa.com/images/ogp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
