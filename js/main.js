@@ -86,6 +86,10 @@ jQuery(function() {
       contentHeight: 'auto',
       // イベント
       events: fetchCalendarEvents,
+      eventClick: function(info) {
+        info.jsEvent.preventDefault();
+        toPost(info);
+      },
       eventDisplay: 'list-item',
     });
     calendar.render();
@@ -113,6 +117,7 @@ jQuery(function() {
         title: post.title,
         start: post.date,
         end: post.date,
+        url: `#day-${post.date}`,
       }));
 
       renderArchive(posts);
@@ -139,6 +144,7 @@ jQuery(function() {
       posts.forEach( post => {
         const li = document.createElement('li');
         const article = document.createElement('article');
+        li.id = `day-${post.date}`;
         li.classList.add('js-target');
         article.classList.add('p-logCard');
 
@@ -164,6 +170,19 @@ jQuery(function() {
       archiveEl.style.transitionDuration = '1s';
       archiveEl.style.opacity = 1;
     }, 300);
+  }
+
+  // カレンダーから投稿記事へ
+  function toPost(info) {
+    // 日付取得
+    const date = info.event.start;
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    const postDate = `${y}-${m}-${d}`;
+    const target = document.querySelector(`#day-${postDate}`);
+
+    target.scrollIntoView({behavior: 'smooth'});
   }
 
 

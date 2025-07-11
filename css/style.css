@@ -600,6 +600,7 @@ a:hover {
 .p-calendar .fc-view .fc-daygrid-day-events .fc-event {
   border: none;
   background-color: unset;
+  pointer-events: auto;
 }
 .p-calendar .fc-view .fc-daygrid-day-events .fc-daygrid-event-dot {
   margin-inline: auto;

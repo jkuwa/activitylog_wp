@@ -131,6 +131,7 @@
       .fc-event {
         border: none;
         background-color: unset;
+        pointer-events: auto;
       }
       .fc-daygrid-event-dot {
         margin-inline: auto;
