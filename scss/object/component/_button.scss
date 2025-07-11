@@ -88,8 +88,9 @@
   line-height: 1;
 
   @include breakpoint(tablet) {
-    margin-left: min(25%, 360px);
-    bottom: 58.7px;
+    margin-left: min(39%, 360px);
+    position: fixed;
+    bottom: 79px;
     right: unset;
     left: 50%;
     font-size: 1.2rem;

@@ -50,9 +50,9 @@
             <!-- ARCHIVE -->
             <ul class="p-log__archive js-archive"></ul>
           </div>
-
-          <a href="#log" class="c-button--top js-topBtn">log top</a>
         </section>
+
+        <a href="#log" class="c-button--top js-topBtn">log top</a>
 
         <!-- REPORT SECTION -->
         <div id="report" class="c-content p-report js-tabContent" role="tabpanel" aria-labelledby="tab_report" tabindex="0" data-tab="report">

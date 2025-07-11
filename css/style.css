@@ -148,8 +148,9 @@ a:hover {
 }
 @media (min-width: 768px) {
   .c-button--top {
-    margin-left: min(25%, 360px);
-    bottom: 58.7px;
+    margin-left: min(39%, 360px);
+    position: fixed;
+    bottom: 79px;
     right: unset;
     left: 50%;
     font-size: 1.2rem;
@@ -1039,5 +1040,17 @@ a:hover {
 .js-target.is-appeared {
   opacity: 1;
   transform: translateY(0);
+}
+
+.js-topBtn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(20%);
+  transition: opacity 0.3s 0.2s, transform 0.3s 0.2s cubic-bezier(0.4, 0.4, 0, 1);
+}
+.js-topBtn.is-appeared {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 /*# sourceMappingURL=style.css.map */

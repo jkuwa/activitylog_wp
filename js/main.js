@@ -4,17 +4,27 @@ jQuery(function() {
   // --------------------
   // フェードインアニメーション
   // --------------------
+  const topBtn = jQuery(".js-topBtn");
   jQuery(window).on('scroll', function() {
+    const windowHeight = jQuery(window).height();
+    const scroll = jQuery(window).scrollTop();
+
     jQuery(".js-target").each( function() {
-      const windowHeight = jQuery(window).height();
-      const scroll = jQuery(window).scrollTop();
       const position = jQuery(this).offset().top;
 
       if ( position < scroll + windowHeight ) {
         jQuery(this).addClass('is-appeared');
       }
     });
+    // topボタンをアーカイブの時だけ表示
+    const archivePos = jQuery(".js-archive").offset().top;
+    if( archivePos < windowHeight + scroll ) {
+      topBtn.addClass('is-appeared');
+    } else {
+      topBtn.removeClass('is-appeared');
+    }
   });
+
 
   // --------------------
   // タブ
@@ -40,6 +50,13 @@ jQuery(function() {
     const data = jQuery(this).data('tab');
     const targetContent = jQuery(`.js-tabContent[data-tab="${data}"]`);
     targetContent.addClass('is-open');
+
+    // topボタン表示切り替え
+    if( data === 'log' ) {
+      topBtn.css('display', 'block');
+    } else {
+      topBtn.css('display', 'none');
+    }
   });
 
   // キーボード操作
