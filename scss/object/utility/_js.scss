@@ -13,13 +13,11 @@
 }
 
 .js-topBtn {
-  opacity: 0;
   pointer-events: none;
-  transform: translateX(20%);
+  transform: translateX(100%);
   transition: opacity .3s .2s, transform .3s .2s cubic-bezier(.4,.4,0,1);
 
   &.is-appeared {
-    opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
   }
