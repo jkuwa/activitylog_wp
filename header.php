@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://log.junna-kuwa.com/">
   <meta property="og:description" content="Webサイト制作を中心に、コーディングからWordPress開発まで対応可能なフリーランスコーダー「くわじゅんな」の活動記録です。">
-  <meta property="og:image" content="https://log.junna-kuwa.com/images/ogp.jpg">
+  <meta property="og:image" content="<?php echo esc_url( get_theme_file_uri('/images/ogp.jpg')); ?>">
   <meta name="twitter:card" content="summary_large_image">
 
   <?php wp_head();?>
