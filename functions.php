@@ -13,7 +13,7 @@
 
     // css
     wp_enqueue_style('reset', get_theme_file_uri('/css/ress.css'));
-    wp_enqueue_style('my-style', get_theme_file_uri('/css/style.min.css'), array('reset'), '2.1.0');
+    wp_enqueue_style('my-style', get_theme_file_uri('/css/style.min.css'), array('reset'), '2.1.1');
 
     // JS
     wp_enqueue_script('full-calendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js', array(), false, true);
